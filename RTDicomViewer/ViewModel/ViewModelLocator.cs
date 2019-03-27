@@ -14,7 +14,6 @@
 
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
 using RTDicomViewer.IO;
 using RTDicomViewer.Utilities;
 using RTDicomViewer.View.Dialogs;
@@ -24,7 +23,9 @@ using RTDicomViewer.ViewModel.MainWindow.UtilityView;
 
 namespace RTDicomViewer.ViewModel
 {
-    /// <summary>
+	using CommonServiceLocator;
+
+	/// <summary>
     /// This class contains static references to all the view models in the
     /// application and provides an entry point for the bindings.
     /// </summary>

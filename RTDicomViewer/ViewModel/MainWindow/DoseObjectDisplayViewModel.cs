@@ -22,7 +22,9 @@ using RT.MonteCarlo.Phantom;
 
 namespace RTDicomViewer.ViewModel.MainWindow
 {
-    public class DoseObjectDisplayViewModel : ViewModelBase
+	using System.IO;
+
+	public class DoseObjectDisplayViewModel : ViewModelBase
     {
         public ObservableCollection<DoseGridWrapper> Doses { get; set; }
         public DoseGridWrapper SelectedDose { get { return _selectedDose; } set { _selectedDose = value; RaisePropertyChanged("SelectedDose");  } }
@@ -93,7 +95,7 @@ namespace RTDicomViewer.ViewModel.MainWindow
 
             var options = new EgsPhantomCreatorOptions();
             options.Grid = dose.Grid;
-            options.OutputFileName = @"C:\Users\thisu\Desktop\out.txt";
+            options.OutputFileName = Path.Combine(Path.GetTempPath(), @"out.txt");
             options.XRange = options.Grid.XRange;
             options.YRange = options.Grid.YRange;
             options.ZRange = options.Grid.ZRange;
